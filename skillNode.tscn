@@ -1,0 +1,87 @@
+[gd_scene load_steps=6 format=3 uid="uid://bpqlqyrbfiuxf"]
+
+[ext_resource type="Script" uid="uid://b3lowpvp5qmjj" path="res://skill_node.gd" id="1_kqyit"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8i1mw"]
+bg_color = Color(0.0398828, 0.263038, 0.211481, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0.140071, 0.151477, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_033is"]
+bg_color = Color(0.194386, 0.207098, 0.252326, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.0561401, 0.0566079, 0.0544729, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kqyit"]
+bg_color = Color(0.342841, 0.049349, 0.185227, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.279871, 0, 0.0275518, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sefqy"]
+bg_color = Color(0.460954, 0.081285, 0.256769, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.279871, 0, 0.0275518, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="skillNode" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(20, 20)
+script = ExtResource("1_kqyit")
+unlockedStyle = SubResource("StyleBoxFlat_8i1mw")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="MarginContainer"]
+z_index = 10
+layout_mode = 2
+theme_override_styles/disabled = SubResource("StyleBoxFlat_033is")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kqyit")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_kqyit")
+theme_override_styles/normal = SubResource("StyleBoxFlat_sefqy")
+text = "Skill"
+
+[connection signal="pressed" from="MarginContainer/Button" to="." method="_on_skill_unlock"]
